@@ -1,0 +1,17 @@
+nav.navbar.navbar-default.ba-header
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href='#')
+        | Babelot
+.container-fluid
+  .row
+    .col-xs-4
+      x-list-panel(guests='msgingCtrl.guests' team='msgingCtrl.team')
+    .col-xs-4
+      x-chat-panel
+    .col-xs-4
+      .row
+        x-sim-preview
+      .row
+        x-sim-search-panel
+            
