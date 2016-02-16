@@ -7,14 +7,11 @@
       x-list-panel(guests='msgingCtrl.guests' team='msgingCtrl.team')
     .ba-center-panel.ba-bg-white
       x-chat-panel
-    .ba-sidebar-right.ba-bg-white
+    .ba-sidebar-right
       x-sim-preview
       x-sim-search-panel
 
 //- MESSAGE FOR USERS ON SMALL SCRENES
 .visible-xs.visible-sm
-  .row.ba-not-available
-    .col-xs-12
-      .panel.panel-default
-        .panel-body
-          p This website is only available on desktop devices
+  .device-not-supported
+    p This website is only available on desktop devices

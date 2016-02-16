@@ -9,3 +9,22 @@
 
 .ba-not-available
   @extend .center-block
+
+.flex-row
+  display: flex
+  flex-direction: row
+
+.flex-column
+  display: flex
+  flex-direction: column
+
+/* TODO: remove this, and support multiple devices */
+.device-not-supported
+  display: -webkit-flex
+  display:         flex
+  height: 100vh
+  align-items: center
+  justify-content: center
+  p
+    @extend %card
+    padding: 20px
