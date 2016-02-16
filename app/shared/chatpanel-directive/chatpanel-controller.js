@@ -4,7 +4,7 @@ export default class {
       this.messageToSend = '';
       this.messages = []
       _.times(150, ()=>{
-          this.messages.push(chance.paragraph())
+          this.messages.push('chance.paragraph()')
       })
     }
 

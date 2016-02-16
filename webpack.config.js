@@ -7,7 +7,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var APP = __dirname + '/app';
 const angularPath = path.resolve(__dirname, './node_modules/angular/angular.min.js')
 const lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
-const uiRouterPath = path.resolve(__dirname, './node_modules/angular-ui-router')
 
 module.exports = {
     context: APP,

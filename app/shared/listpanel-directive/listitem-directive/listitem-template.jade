@@ -1,9 +1,8 @@
-.row
-    .col-xs-2
-        img(src='{{$ctrl.data.img}}' width="50" height="50")
-    .col-xs-10
-        .row
-            .col-xs-12
-                | {{$ctrl.data.name}}
-            .col-xs-12
-                | {{$ctrl.data.phone}}
+.ba-chatlist-item
+
+  .profile-image-wrapper
+    img(src='{{$ctrl.data.img}}' width="50" height="50")
+  
+  .info
+    .info--name {{$ctrl.data.name}}
+    .info--preview {{$ctrl.data.phone}}

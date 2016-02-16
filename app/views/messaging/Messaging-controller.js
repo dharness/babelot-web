@@ -1,5 +1,4 @@
-import chance from 'chance'
-
+var faker = require('faker')
 
 class MessagingController {
 
@@ -8,17 +7,18 @@ class MessagingController {
     // TODO: Remove this and replace it with something RESTful
     this.guests = []
     this.team = []
+    
     _.times(15, () => {
       this.guests.push({
-        name: 'chance.name()',
-        phone: 'chance.phone()',
-        img: 'http://www.talkaboutwork.sg/upload/noimage/avatar.png'
+        name: faker.Name.findName(),
+        phone: faker.PhoneNumber.phoneNumber(),
+        img: 'http://placehold.it/55x55'
       })
     });
     this.team.push({
       name: 'Dusty Panson',
       role: 'Maintenance',
-      img: 'http://www.talkaboutwork.sg/upload/noimage/avatar.png'
+      img: 'http://placehold.it/55x55'
     });
   }
 }

@@ -1,17 +1,20 @@
-nav.navbar.navbar-default.ba-header
-  .container-fluid
-    .navbar-header
-      a.navbar-brand(href='#')
-        | Babelot
-.container-fluid
-  .row
-    .col-xs-4
+.ba-messaging.hidden-xs.hidden-sm
+  header.ba-header
+    .ba-header--title Babelot
+
+  .ba-messaging--content
+    .ba-sidebar-left.ba-bg-white
       x-list-panel(guests='msgingCtrl.guests' team='msgingCtrl.team')
-    .col-xs-4
+    .ba-center-panel.ba-bg-white
       x-chat-panel
-    .col-xs-4
-      .row
-        x-sim-preview
-      .row
-        x-sim-search-panel
-            
+    .ba-sidebar-right.ba-bg-white
+      x-sim-preview
+      x-sim-search-panel
+
+//- MESSAGE FOR USERS ON SMALL SCRENES
+.visible-xs.visible-sm
+  .row.ba-not-available
+    .col-xs-12
+      .panel.panel-default
+        .panel-body
+          p This website is only available on desktop devices

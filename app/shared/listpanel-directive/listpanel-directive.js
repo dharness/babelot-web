@@ -5,7 +5,7 @@ var template = require('jade!./listpanel-template.jade');
 
 export default () => {
   return {
-    restrict: 'E',
+      restrict: 'E',
       scope: {
         guests: '=',
         team: '='

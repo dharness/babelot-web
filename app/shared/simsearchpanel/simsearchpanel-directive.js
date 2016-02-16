@@ -12,7 +12,7 @@ export default () => {
         _.times(50, ()=>{
           this.sims.push({
             img: 'http://placehold.it/100x100',
-            name: chance.name()
+            name: 'chance.name()'
           })
         })
       },
