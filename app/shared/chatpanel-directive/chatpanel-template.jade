@@ -1,24 +1,7 @@
-//- .row
-//-   div(ng-repeat="messages in chatPanelCtrl.messages track by $index")
-//-     x-chat-card
-//- .row.ba-center-panel
-//-   .col-xs-10
-//-     form(ng-submit="chatPanelCtrl.sendMessage()")
-//-       input(type="text", ng-model="chatPanelCtrl.messageToSend", placeholder="lemmons")
-
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
-p lemmons
+.ba-center-panel
+  #chatlist.chat-panel--list(scroll-glue)
+    div(ng-repeat="message in chatPanelCtrl.messages track by $index")
+      x-chat-card(message='message')
+  .chat-panel--input
+    form(ng-submit="chatPanelCtrl.sendMessage()")
+      input(type="text", ng-model="chatPanelCtrl.messageToSend", placeholder="message...")

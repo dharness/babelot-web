@@ -8,7 +8,7 @@ import simpreview from './shared/simpreview/simpreview-directive.js'
 import simsearchpanel from './shared/simsearchpanel/simsearchpanel-directive.js'
 var styles = require('./styles/main.sass')
 
-angular.module('babelot', ['ui.router', 'angular.filter'])
+angular.module('babelot', ['ui.router', 'angular.filter', 'luegg.directives'])
   .config(router)
   .controller('MessagingController', MessagingController)
   .directive('listPanel', listpanel)
@@ -17,12 +17,3 @@ angular.module('babelot', ['ui.router', 'angular.filter'])
   .directive('chatCard', chatcard)
   .directive('simPreview', simpreview)
   .directive('simSearchPanel', simsearchpanel);
-
-/**
- * Using System.js means we have to load our dependencies
- * asynchronously. We must wait until the document is loaded
- * and bootstrap manually.
- */
-// angular.element(document).ready(() => {
-//   angular.bootstrap(document, ['babelot'])
-// });

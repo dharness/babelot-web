@@ -16,6 +16,7 @@ module.exports = {
         'angular',
         'angular-ui-router',
         'angular-filter',
+        'angularjs-scroll-glue',
         'lodash',
         './app-module'
     ],
