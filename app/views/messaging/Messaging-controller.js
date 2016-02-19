@@ -3,11 +3,12 @@ var faker = require('faker')
 class MessagingController {
 
   constructor() {
+
     // Genereate some random users for now
     // TODO: Remove this and replace it with something RESTful
     this.guests = []
     this.team = []
-    
+
     _.times(15, () => {
       this.guests.push({
         name: faker.Name.findName(),
