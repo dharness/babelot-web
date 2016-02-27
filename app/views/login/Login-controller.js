@@ -1,43 +1,36 @@
 class LoginController {
 
-  constructor(Auth, $http) {
-
+  constructor(Auth, $http, $window, $scope, $state, babelotApi) {
+    this.$window = $window;
     this.$http = $http;
-
     /* Google login specific function, google expects this to be gloabl */
     window.onSignIn = (googleUser) => {
       var profile = googleUser.getBasicProfile();
       var id_token = googleUser.getAuthResponse().id_token;
 
+      $state.go('messaging');
 
+      // Verify our token was signed by google,
+      // and log our user in
       // this.$http({
       //   method: 'POST',
-      //   url: 'https:localhost:3443/googletoken',
-      //   data: {
-      //     token: id_token
+      //   url: `${babelotApi}/user/login`,
+      //   headers: {
+      //     'Authorization': `Bearer ${id_token}`
       //   }
-      // })
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https:localhost:3443/googletoken');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onload = function() {
-        console.log('Signed in as: ' + xhr.responseText);
-      };
-      xhr.send('idtoken=' + id_token);
-
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+      // }).then((res) => {
+      //   console.log(res.data);
+      // }, (err) => {
+      //   console.error(err)
+      // });
     }
-  }
 
-  signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function() {
-      console.log('User signed out.');
-    });
+    window.signOut = () => {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function() {
+        console.log('User signed out.');
+      });
+    }
   }
 
 }

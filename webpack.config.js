@@ -7,6 +7,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 var APP = __dirname + '/app';
 const angularPath = path.resolve(__dirname, './node_modules/angular/angular.min.js')
+const hellojsPath = path.resolve(__dirname, './node_modules/hellojs/hello.all.js')
 const lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
 
 module.exports = {
@@ -28,7 +29,8 @@ module.exports = {
   resolve: {
     alias: {
       angular: angularPath,
-      lodash: lodashPath
+      lodash: lodashPath,
+      hello: hellojsPath
     }
   },
   plugins: [
