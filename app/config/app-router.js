@@ -16,7 +16,14 @@ export default ($stateProvider, $urlRouterProvider) => {
         url: "/messaging",
         template: messagingTemplate(),
         controller: MessagingController,
-        controllerAs: 'msgingCtrl'
+        controllerAs: 'msgingCtrl',
+        resolve: {
+
+          user: ($http, $stateParams) => {
+            return {lemmons: 'pie'}
+          }
+
+        }
       })
       .state('login', {
         url: "/login",
