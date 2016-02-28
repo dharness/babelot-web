@@ -3,5 +3,5 @@
     input.b-searchbar(type="text" placeholder="search..." ng-model="simSearchPanelCtrl.simSearchTerms")
   .sim-item(ng-repeat='sim in simSearchPanelCtrl.sims')
       center
-        img(src="{{sim.img}}")
+        img(ng-src="{{sim.img}}")
         p {{sim.name}}

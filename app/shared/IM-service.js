@@ -1,13 +1,14 @@
 class ImService {
 
-  constructor($http) {
+  constructor($http, babelotApi) {
     this.$http = $http;
+    this.babelotApi = babelotApi;
   }
 
   connect() {
     return this.$http({
       method: 'GET',
-      url: 'http://localhost:8000/token?device=browser'
+      url: `${this.babelotApi}/token/twilio?device=browser`
     })
     .then((res)=>{
       this.username = res.data.identity;
