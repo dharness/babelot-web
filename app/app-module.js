@@ -15,7 +15,8 @@ var styles = require('./styles/main.sass')
 
 angular.module('babelot', ['ui.router', 'angular.filter', 'luegg.directives'])
   .config(router)
-  .constant('babelotApi', 'https://docker.default')
+  // This is currently our docker containers IP, make sure that's running
+  .constant('babelotApi', 'https://192.168.99.100')
   .controller('MessagingController', MessagingController)
   .controller('LoginController', LoginController)
   .directive('listPanel', listpanel)
