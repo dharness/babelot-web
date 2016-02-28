@@ -1,6 +1,6 @@
 class ImService {
 
-  constructor($http, babelotApi) {
+  constructor($http, babelotApi, jwt) {
     this.$http = $http;
     this.babelotApi = babelotApi;
   }

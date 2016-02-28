@@ -9,12 +9,15 @@ import simpreview from './shared/simpreview/simpreview-directive.js'
 import simsearchpanel from './shared/simsearchpanel/simsearchpanel-directive.js'
 import ImService from './shared/IM-Service.js'
 import Auth from './shared/auth/auth.js'
+import httpInterceptor from './config/httpInterceptor.js'
 
 
 var styles = require('./styles/main.sass')
 
 angular.module('babelot', ['ui.router', 'angular.filter', 'luegg.directives'])
+  .value('jwt', {})
   .config(router)
+  .config(httpInterceptor)
   // This is currently our docker containers IP, make sure that's running
   .constant('babelotApi', 'https://192.168.99.100')
   .controller('MessagingController', MessagingController)

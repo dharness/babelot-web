@@ -2,7 +2,10 @@ var faker = require('faker')
 
 class MessagingController {
 
-  constructor(user, $http) {
+  constructor(user, $http, babelotApi) {
+
+    this.user = user;
+
     // Genereate some random users for now
     // TODO: Remove this and replace it with something RESTful
     this.guests = []

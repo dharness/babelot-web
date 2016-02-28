@@ -19,8 +19,15 @@ export default ($stateProvider, $urlRouterProvider) => {
         controllerAs: 'msgingCtrl',
         resolve: {
 
-          user: ($http, $stateParams) => {
-            return {lemmons: 'pie'}
+          user: ($http, babelotApi, jwt) => {
+            return $http({
+              method: 'GET',
+              url: `${babelotApi}/user`
+            }).then((res)=>{
+              return {
+                email: res.data.email
+              }
+            })
           }
 
         }
@@ -30,5 +37,5 @@ export default ($stateProvider, $urlRouterProvider) => {
         template: loginTemplate(),
         controller: LoginController,
         controllerAs: 'loginCtrl'
-      })
+      });
 }

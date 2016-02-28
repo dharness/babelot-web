@@ -1,14 +1,14 @@
 class LoginController {
 
-  constructor(Auth, $http, $window, $scope, $state, babelotApi) {
+  constructor(Auth, $http, $window, $scope, $state, babelotApi, jwt) {
     this.$window = $window;
     this.$http = $http;
-    
+    this.jwt = jwt;
+
     /* Google login specific function, google expects this to be gloabl */
     window.onSignIn = (googleUser) => {
-      var profile = googleUser.getBasicProfile();
-      var id_token = googleUser.getAuthResponse().id_token;
-
+      this.jwt.id_token = googleUser.getAuthResponse().id_token;
+      sessionStorage.id_token = this.jwt.id_token
       $state.go('messaging');
     }
 
