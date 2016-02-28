@@ -1,19 +1,34 @@
 import MessagingController from '../views/messaging/Messaging-controller.js';
+import LoginController from '../views/login/Login-controller.js';
 
 
-var template = require('jade!../views/messaging/messaging.jade');
+var messagingTemplate = require('jade!../views/messaging/messaging.jade');
+var loginTemplate = require('jade!../views/login/login.jade');
 
 export default ($stateProvider, $urlRouterProvider) => {
 
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/messaging");
+    $urlRouterProvider.otherwise("/login");
     //
     // Now set up the states
     $stateProvider
       .state('messaging', {
         url: "/messaging",
-        template: template(),
+        template: messagingTemplate(),
         controller: MessagingController,
-        controllerAs: 'msgingCtrl'
+        controllerAs: 'msgingCtrl',
+        resolve: {
+
+          user: ($http, $stateParams) => {
+            return {lemmons: 'pie'}
+          }
+
+        }
+      })
+      .state('login', {
+        url: "/login",
+        template: loginTemplate(),
+        controller: LoginController,
+        controllerAs: 'loginCtrl'
       })
 }
