@@ -8,7 +8,8 @@ class LoginController {
     /* Google login specific function, google expects this to be gloabl */
     window.onSignIn = (googleUser) => {
       this.jwt.id_token = googleUser.getAuthResponse().id_token;
-      sessionStorage.id_token = this.jwt.id_token
+      sessionStorage.email = googleUser.getBasicProfile().getEmail();
+      sessionStorage.id_token = this.jwt.id_token;
       $state.go('messaging');
     }
 

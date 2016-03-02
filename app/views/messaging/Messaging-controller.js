@@ -1,24 +1,23 @@
-var faker = require('faker')
+var faker = require('faker');
+var swal = require('sweetalert');
+
 
 class MessagingController {
 
-  constructor(user, $http, babelotApi) {
-
+  constructor(user, Restangular) {
     this.user = user;
+    this.guests = [];
+    this.team = [];
 
-    // Genereate some random users for now
-    // TODO: Remove this and replace it with something RESTful
-    this.guests = []
-    this.team = []
-
-    // Generates fake guests for left panel
-    _.times(15, () => {
-      this.guests.push({
-        name: faker.Name.findName(),
-        phone: faker.PhoneNumber.phoneNumber(),
-        img: 'http://placehold.it/55x55'
+    user.getList('connection').then(res => {
+      res.forEach(e => {
+        this.guests.push({
+          name: e.email,
+          phone: faker.PhoneNumber.phoneNumber(),
+          img: 'http://placehold.it/55x55'
+        })
       })
-    });
+    })
 
     // generates team for left panel
     this.team.push({
@@ -27,6 +26,25 @@ class MessagingController {
       img: 'http://placehold.it/55x55'
     });
   }
+
+  addContact() {
+    swal({
+      title: "Add a contact",
+      text: "Enter the contacts email:",
+      type: "input",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      inputPlaceholder: "noodle@doodle.com"
+    }, (inputValue) => {
+      if (inputValue === false) return false;
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!");
+        return false
+      }
+      swal("Nice!", `${inputValue} added to contacts!`, "success");
+    });
+  }
 }
+
 
 export default MessagingController

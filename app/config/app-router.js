@@ -9,7 +9,6 @@ export default ($stateProvider, $urlRouterProvider) => {
 
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/login");
-    //
     // Now set up the states
     $stateProvider
       .state('messaging', {
@@ -18,18 +17,9 @@ export default ($stateProvider, $urlRouterProvider) => {
         controller: MessagingController,
         controllerAs: 'msgingCtrl',
         resolve: {
-
-          user: ($http, babelotApi, jwt) => {
-            return $http({
-              method: 'GET',
-              url: `${babelotApi}/user`
-            }).then((res)=>{
-              return {
-                email: res.data.email
-              }
-            })
+          user: (Restangular) => {
+            return Restangular.one('user', 'login').post();
           }
-
         }
       })
       .state('login', {

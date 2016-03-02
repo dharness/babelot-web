@@ -14,6 +14,7 @@ class ImService {
       this.username = res.data.identity;
       // Initialize the IP messaging client
       var accessManager = new Twilio.AccessManager(res.data.token);
+
       var messagingClient = new Twilio.IPMessaging.Client(accessManager);
       return messagingClient.getChannelByUniqueName('general')
         .then((channel)=> {

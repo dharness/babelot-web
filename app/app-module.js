@@ -10,14 +10,16 @@ import simsearchpanel from './shared/simsearchpanel/simsearchpanel-directive.js'
 import ImService from './shared/IM-Service.js'
 import Auth from './shared/auth/auth.js'
 import httpInterceptor from './config/httpInterceptor.js'
+import restangularProvider from './config/restangularProvider.js'
 
 
 var styles = require('./styles/main.sass')
 
-angular.module('babelot', ['ui.router', 'angular.filter', 'luegg.directives'])
+angular.module('babelot', ['ui.router', 'angular.filter', 'luegg.directives', 'restangular'])
   .value('jwt', {})
   .config(router)
   .config(httpInterceptor)
+  .config(restangularProvider)
   // This is currently our docker containers IP, make sure that's running
   .constant('babelotApi', 'https://192.168.99.100')
   .controller('MessagingController', MessagingController)
