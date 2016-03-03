@@ -1,10 +1,17 @@
 class Auth {
-  constructor() {
-    console.log('lemmons');
+
+  setCurrentUser(user) {
+    this.currentUser = user;
+    return user;
   }
-  loginGoogle () {
-    alert('loggin in google')
+
+  getCurrentUser() {
+    if (!this.currentUser) {
+
+    }
+    return this.currentUser || {};
   }
+
 }
 
 export default Auth

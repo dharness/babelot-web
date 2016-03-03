@@ -4,6 +4,7 @@ class LoginController {
     this.$window = $window;
     this.$http = $http;
     this.jwt = jwt;
+    this.Auth = Auth;
 
     /* Google login specific function, google expects this to be gloabl */
     window.onSignIn = (googleUser) => {

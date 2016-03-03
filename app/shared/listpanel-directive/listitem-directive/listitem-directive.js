@@ -1,4 +1,5 @@
 var template = require('jade!./listitem-template.jade');
+import ListItemController from './listitem-controller.js'
 
 export default () => {
     return {
@@ -8,7 +9,7 @@ export default () => {
         },
         bindToController: true,
         template: template(),
-        controller() {},
+        controller: ListItemController,
         controllerAs: '$ctrl'
     }
 }

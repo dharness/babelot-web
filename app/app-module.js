@@ -9,6 +9,7 @@ import simpreview from './shared/simpreview/simpreview-directive.js'
 import simsearchpanel from './shared/simsearchpanel/simsearchpanel-directive.js'
 import ImService from './shared/IM-Service.js'
 import Auth from './shared/auth/auth.js'
+import ContactsService from './shared/contacts/contacts-service.js'
 import httpInterceptor from './config/httpInterceptor.js'
 import restangularProvider from './config/restangularProvider.js'
 
@@ -31,4 +32,5 @@ angular.module('babelot', ['ui.router', 'angular.filter', 'luegg.directives', 'r
   .directive('simPreview', simpreview)
   .directive('simSearchPanel', simsearchpanel)
   .service('ImService', ImService)
-  .service('Auth', Auth);
+  .service('Auth', Auth)
+  .service('ContactsService', ContactsService);

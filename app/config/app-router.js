@@ -17,8 +17,9 @@ export default ($stateProvider, $urlRouterProvider) => {
         controller: MessagingController,
         controllerAs: 'msgingCtrl',
         resolve: {
-          user: (Restangular) => {
-            return Restangular.one('user', 'login').post();
+          user: (Restangular, Auth) => {
+            return Restangular.one('user', 'login').post()
+                .then(user => Auth.setCurrentUser(user));
           }
         }
       })
